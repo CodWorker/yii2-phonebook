@@ -9,6 +9,7 @@
  */
 
 return [
+    'Create Contacts' => 'Добавить контакт',
     'Home' => 'Главная',
     'username' => 'Логин',
     'password' => 'Пароль',

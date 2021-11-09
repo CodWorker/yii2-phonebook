@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\ContactsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contacts';
+$this->title = 'Все контакты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contacts-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Contacts', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php //echo Html::a('Create Contacts', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

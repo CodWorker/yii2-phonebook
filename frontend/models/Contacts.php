@@ -42,11 +42,11 @@ class Contacts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
+            'first_name' => 'Имя',
+            'last_name' => 'Фамилия',
             'email' => 'Email',
-            'birthday' => 'Birthday',
-            'phone' => 'Phone',
+            'birthday' => 'День рождения',
+            'phone' => 'Телефон',
         ];
     }
 
