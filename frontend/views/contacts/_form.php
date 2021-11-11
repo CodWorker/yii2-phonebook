@@ -39,7 +39,10 @@ use common\widgets\datepicker\DatePicker;
      ]) 
     ?>
 
-    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'phone')
+    ->textarea(['rows' => 2, 'cols' => 5])->hint('Телефоны необходимо вводить через запятую')
+    // ->textInput(['maxlength' => true]) 
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

@@ -49,7 +49,7 @@ class Contacts extends \yii\db\ActiveRecord
             'last_name' => 'Фамилия',
             'email' => 'Email',
             'birthday' => 'День рождения',
-            'phone' => 'Телефон',
+            'phone' => 'Телефоны',
         ];
     }
 
