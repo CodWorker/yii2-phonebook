@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use common\components\validators\YearValidator;
 
 /**
  * This is the model class for table "contacts".
@@ -32,6 +33,7 @@ class Contacts extends \yii\db\ActiveRecord
         return [
             [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'required'],
             [['email'], 'email'],
+            [['birthday'], YearValidator::class],
             [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'string', 'max' => 255],
         ];
     }
@@ -50,6 +52,20 @@ class Contacts extends \yii\db\ActiveRecord
             'phone' => 'Телефон',
         ];
     }
+
+    // public function check_years($attribute, $params){
+    //     $this->addError($attribute, "Este email já existe");
+
+    //     // return true;
+    // }
+
+//     public function clientValidateAttribute($model, $attribute, $view)
+//     {
+//      return <<<JS
+// messages.push('cdscds scdscdscs');
+
+// JS;
+//     }
 
     /**
      * {@inheritdoc}

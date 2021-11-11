@@ -9,9 +9,14 @@ use common\widgets\datepicker\DatePicker;
 /* @var $model frontend\models\Contacts */
 /* @var $form yii\widgets\ActiveForm */
 
-// (new \common\widgets\datepicker\Test)->show();
+// $js = <<<JS
+// $(document).on("change", "#contacts-birthday", function() {
+//         // alert($(this).val());
+//         console.log($(this).val());
+//     });
+// JS;
 
-
+// $this->registerJs($js);
 ?>
 
 <div class="contacts-form">
