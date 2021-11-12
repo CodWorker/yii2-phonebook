@@ -38,6 +38,7 @@ class Contacts extends \yii\db\ActiveRecord
         return [
             [['first_name', 'phone'], 'required'],
             [['created_at', 'updated_at'], 'integer'],
+            [['updated_at'], 'default', 'value' => null],
             [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'string', 'max' => 255],
             [['email'], 'email'],
             [['birthday'], YearValidator::class],
@@ -69,7 +70,7 @@ class Contacts extends \yii\db\ActiveRecord
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
-                    \yii\db\BaseActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                    \yii\db\BaseActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
                     \yii\db\BaseActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
                 ],
                 'value' => function(){

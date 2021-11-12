@@ -26,7 +26,7 @@ class m211112_113015_contacts extends Migration
             'birthday'   => $this->string()->defaultValue(NULL),
             'phone'      => $this->string()->notNull(),
             'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'updated_at' => $this->integer()->defaultValue(NULL),
             
         ], $tableOptions);
 
