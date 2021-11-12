@@ -1,5 +1,4 @@
 <?php
-// YearValidator
 
 namespace common\components\validators;
 
@@ -25,25 +24,10 @@ class YearValidator extends Validator
 
     public function clientValidateAttribute($model, $attribute, $view)
     {
-
-//         $value = $model->$attribute;
-
-//         $message = json_encode($this->message, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
-//         return <<<JS
-        
-//         var inp = $("#contacts-birthday").val();
-        
-//         if (true) {
-//             console.log(inp);
-//             messages.push($message);
-//         }
-// JS;
-
-
     }
 
-    private function computeEquals($attr){
+    private function computeEquals($attr)
+    {
         $now = \Yii::$app->formatter->asDate('now', 'yyyy-MM-dd');
         // $attr = '2003-11-18';
         $year = 18;
@@ -52,5 +36,4 @@ class YearValidator extends Validator
         $computeDate = implode('-', $parts);
         return (strtotime($computeDate) > strtotime($now));
     }
-
 }

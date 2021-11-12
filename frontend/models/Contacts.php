@@ -36,11 +36,13 @@ class Contacts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'required'],
+            [['first_name', 'phone'], 'required'],
+            [['created_at', 'updated_at'], 'integer'],
+            [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'string', 'max' => 255],
             [['email'], 'email'],
             [['birthday'], YearValidator::class],
             [['phone'], PhoneValidator::class],
-            [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'string', 'max' => 255],
+            
         ];
     }
 
@@ -59,8 +61,27 @@ class Contacts extends \yii\db\ActiveRecord
         ];
     }
 
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    \yii\db\BaseActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                    \yii\db\BaseActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => function(){
+                                return gmdate("Y-m-d H:i:s");
+                },
+            //'value' => new \yii\db\Expression('NOW()'),
+
+            ],
+        ];
+    }
+
     // Protection data incomed from form field 'phone'
-    public function beforeSave($insert) {
+    public function beforeSave($insert)
+    {
         if (!parent::beforeSave($insert)) {
             return false;
         }
@@ -71,7 +92,7 @@ class Contacts extends \yii\db\ActiveRecord
         $arrayRes = array();
         $array = explode(',', $this->phone);
 
-        foreach($array as $item){
+        foreach ($array as $item) {
             $arrayRes[] = trim($item);
         }
         $this->phone = implode(',', $arrayRes);
@@ -79,19 +100,6 @@ class Contacts extends \yii\db\ActiveRecord
         return true;
     }
 
-    // public function check_years($attribute, $params){
-    //     $this->addError($attribute, "Este email já existe");
-
-    //     // return true;
-    // }
-
-//     public function clientValidateAttribute($model, $attribute, $view)
-//     {
-//      return <<<JS
-// messages.push('cdscds scdscdscs');
-
-// JS;
-//     }
 
     /**
      * {@inheritdoc}
