@@ -10,20 +10,9 @@ Steps to install project:
 =========================
 
 * Clone repository from github
-* Run in console from root directory ```composer update```
-* Run in console from root directory ```php init```
-* Create mysql db and add config to connect to in common/config/main-local.php
-* Run in console from root directory ```yii migrate``` (create tables `user` and `migration`)
-* Run in console from root directory ```yii migrate --migrationPath=@yii/rbac/migrations/``` (create four rbac tables)
+* Run in console from project root directory ```composer update```
+* Run in console from project root directory ```php init```
+* Create mysql db named `phonebooktest` and check config to connection with db in `common/config/main-local.php`
 * Run in console from root directory ```run yii rbac/init``` (see console/controllers/RbacController.php)
 * Run in console migration ```yii migrate m211112_113015_contacts```
 
-
-What included in kit.
--------------------------
-
-1. Create options to use pretty Url`s.
-2. Create rbac controller and base roles. Use rbac db manager in this case.
-3. Add links from frontend to backend and conversely.
-4. Create theming in view options.
-5. Add in frontend/config/main options to include favicon in view.
