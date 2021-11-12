@@ -40,7 +40,7 @@ use common\widgets\datepicker\DatePicker;
     ?>
 
     <?= $form->field($model, 'phone')
-    ->textarea(['rows' => 2, 'cols' => 5])->hint('Телефоны необходимо вводить через запятую')
+    ->textarea(['rows' => 2, 'cols' => 5])->hint('Телефоны необходимо вводить через запятую.Допускаются телефоны в формате: +380123456789, 0123456789')
     // ->textInput(['maxlength' => true]) 
     ?>
 

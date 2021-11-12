@@ -4,7 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use common\components\validators\YearValidator;
-
+use common\components\validators\PhoneValidator;
 /**
  * This is the model class for table "contacts".
  *
@@ -34,6 +34,7 @@ class Contacts extends \yii\db\ActiveRecord
             [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'required'],
             [['email'], 'email'],
             [['birthday'], YearValidator::class],
+            [['phone'], PhoneValidator::class],
             [['first_name', 'last_name', 'email', 'birthday', 'phone'], 'string', 'max' => 255],
         ];
     }

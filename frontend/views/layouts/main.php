@@ -38,7 +38,7 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Все контакты', 'url' => ['/site/index']],
+        ['label' => 'Все контакты', 'url' => ['/']],
         ['label' => 'Добавить контакт', 'url' => ['/contacts/create']],
         // ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
