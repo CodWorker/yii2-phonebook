@@ -13,7 +13,7 @@ Steps to install project:
 * Run in console from project root directory ```composer update```
 * Run in console from project root directory ```php init```
 * Create mysql db named `phonebooktest` and check config to connection with db in `common/config/main-local.php`
-* Run in console from root directory ```run yii rbac/init``` (see console/controllers/RbacController.php)
+
 * Run in console migration ```yii migrate m211112_113015_contacts```
 
 __Or create DB from dump (without running migrations)located in this path `dump-db/phonebooktest`__
