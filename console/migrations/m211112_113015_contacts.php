@@ -21,9 +21,9 @@ class m211112_113015_contacts extends Migration
         $this->createTable('{{%contacts}}', [
             'id' => $this->primaryKey(),
             'first_name' => $this->string()->notNull(),
-            'last_name'  => $this->string(),
-            'email'      => $this->string(),
-            'birthday'   => $this->string(),
+            'last_name'  => $this->string()->defaultValue(NULL),
+            'email'      => $this->string()->defaultValue(NULL),
+            'birthday'   => $this->string()->defaultValue(NULL),
             'phone'      => $this->string()->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),

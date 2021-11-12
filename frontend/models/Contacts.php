@@ -58,6 +58,8 @@ class Contacts extends \yii\db\ActiveRecord
             'email' => 'Email',
             'birthday' => 'День рождения',
             'phone' => 'Телефоны',
+            'created_at' => 'Дата добавления',
+            'updated_at' => 'Дата редактирования',
         ];
     }
 
