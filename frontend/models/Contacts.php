@@ -5,6 +5,11 @@ namespace frontend\models;
 use Yii;
 use common\components\validators\YearValidator;
 use common\components\validators\PhoneValidator;
+use common\components\behaviors\PurifyBehavior;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\behaviors\SluggableBehavior;
+
 /**
  * This is the model class for table "contacts".
  *
@@ -52,6 +57,26 @@ class Contacts extends \yii\db\ActiveRecord
             'birthday' => 'День рождения',
             'phone' => 'Телефоны',
         ];
+    }
+
+    // Protection data incomed from form field 'phone'
+    public function beforeSave($insert) {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        $this->phone = strip_tags(trim($this->phone));
+        $this->phone = \yii\helpers\HtmlPurifier::process($this->phone);
+        $this->phone = \yii\helpers\Html::encode($this->phone);
+
+        $arrayRes = array();
+        $array = explode(',', $this->phone);
+
+        foreach($array as $item){
+            $arrayRes[] = trim($item);
+        }
+        $this->phone = implode(',', $arrayRes);
+
+        return true;
     }
 
     // public function check_years($attribute, $params){
